@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>signUp</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+          integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous"/>
+    <div th:include="/config::script"></div>
+</head>
+<body>
+<div th:include="/config::header"></div>
+<div class="login-form" style="text-align: center;">
+    <form action="/signup" method="post">
+        <h2 class="text-center">Registration</h2>
+        <div class="form-group  w-25 p-3" style="margin: auto;">
+            <input type="text" class="form-control" placeholder="First name" required="required" name="firstName"/>
+        </div>
+        <div class="form-group  w-25 p-3" style="margin: auto;">
+            <input type="text" class="form-control" placeholder="Last Name" required="required" name="lastName"/>
+        </div>
+        <div class="form-group  w-25 p-3" style="margin: auto;">
+            <input type="email" class="form-control" placeholder="Email" required="required" name="email"/>
+        </div>
+        <div class="form-group  w-25 p-3" style="margin: auto;">
+            <input type="text" class="form-control" placeholder="Username" required="required" name="login" pattern="^[а-яА-ЯёЁa-zA-Z0-9\s{0,1}]+$"/>
+        </div>
+        <div class="form-group  w-25 p-3" style="margin: auto;">
+            <input type="password" class="form-control" placeholder="Password" required="required" name="password" pattern="^[a-zA-Z0-9]+$"/>
+        </div>
+        <div class="form-group w-25 p-3" style="margin: auto;">
+            <button type="submit" class="btn btn-light">Register</button>
+        </div>
+        <p th:if="${error!=null}" style="color : red;">
+            Please, follow instructions
+        </p>
+    </form>
+</div>
+
+
+</body>
+</html>
